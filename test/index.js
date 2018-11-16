@@ -1,8 +1,8 @@
 const LuckGuy = require('../src/luckyGuy.bs')
-const assert = require('assert');
+const Assert = require('assert');
 
 const asserEqual = (lastedList, userList, expect) =>
-  it(`should return correct user:`, () => assert.equal(LuckGuy.luckyGuy(lastedList, userList), expect));
+  it(`should return correct user:`, () => Assert.equal(LuckGuy.luckyGuy(lastedList, userList), expect));
 
 
 describe('LuckGuy', function () {

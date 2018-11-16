@@ -1,12 +1,11 @@
-const cheerio = require('cheerio')
-const request = require('request')
+const Cheerio = require('cheerio')
+const Request = require('request')
 const LuckGuy = require('./luckyGuy.bs')
 
 const userList = [
   '姜莱',
   '吴文苑',
   '王珂珂',
-  '郑捷',
   '杨帆',
   '陈力',
   '程凯',
@@ -21,12 +20,13 @@ const userList = [
   '王洁琼',
   '周伦',
   '陈萍圆',
+  '郑捷',
 ]
 
 
-request('http://wiki.ybybzj.net/kb/wiki_contest', (err, resp, html) => {
+Request('http://wiki.ybybzj.net/kb/wiki_contest', (err, resp, html) => {
   if (err) return console.error(err)
-  const $ = cheerio.load(html, {
+  const $ = Cheerio.load(html, {
     ignoreWhitespace: true
   });
   const latestList = $('tr td:first-child', 'table').map(function () {

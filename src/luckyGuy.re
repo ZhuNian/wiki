@@ -34,18 +34,18 @@ let rec luckyGuy = (~latestList: array(t), ~userList: array(t)) => {
   | _ =>
     let lastedList__ = slice(~start=0, ~end_=userlistLength, latestList);
     let lastedListLength = length(lastedList__);
-    let unUsedUser = filterList(lastedList__, userList);
+    let usersNotIncluded = filterList(lastedList__, userList);
 
-    switch (length(unUsedUser)) {
+    switch (length(usersNotIncluded)) {
     | 0 =>
       switch (findLastDuplicateItem(lastedList__, userList)) {
       | Some(item) => item
       | None => Js.Exn.raiseError("findLastDuplicateItem error")
       }
-    | 1 => arrayAt(unUsedUser, 0)
+    | 1 => arrayAt(usersNotIncluded, 0)
     | _ =>
       if (lastedListLength < userlistLength) {
-        arrayAt(unUsedUser, 0);
+        arrayAt(usersNotIncluded, 0);
       } else {
         luckyGuy(
           ~latestList=
@@ -54,7 +54,7 @@ let rec luckyGuy = (~latestList: array(t), ~userList: array(t)) => {
               ~end_=length(latestList),
               latestList,
             ),
-          ~userList=unUsedUser,
+          ~userList=usersNotIncluded,
         );
       }
     };

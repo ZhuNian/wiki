@@ -38,15 +38,15 @@ function luckyGuy(_latestList, _userList) {
     } else {
       var lastedList__ = latestList.slice(0, userlistLength);
       var lastedListLength = lastedList__.length;
-      var unUsedUser = filterList(lastedList__, userList);
-      var match = unUsedUser.length;
+      var usersNotIncluded = filterList(lastedList__, userList);
+      var match = usersNotIncluded.length;
       if (match !== 0) {
         if (match !== 1 && lastedListLength >= userlistLength) {
-          _userList = unUsedUser;
+          _userList = usersNotIncluded;
           _latestList = latestList.slice(userlistLength, latestList.length);
           continue ;
         } else {
-          return arrayAt(unUsedUser, 0);
+          return arrayAt(usersNotIncluded, 0);
         }
       } else {
         var match$1 = findLastDuplicateItem(lastedList__, userList);
