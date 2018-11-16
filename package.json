@@ -5,7 +5,8 @@
     "build": "bsb -make-world",
     "start": "bsb -make-world -w",
     "clean": "bsb -clean-world",
-    "test": "mocha"
+    "test": "mocha",
+    "wiki": "node src/index.js"
   },
   "keywords": [
     "BuckleScript"
