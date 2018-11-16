@@ -60,5 +60,3 @@ let rec luckyGuy = (~latestList: array(t), ~userList: array(t)) => {
     };
   };
 };
-
-/* luckyGuy(~lastedList=lastedList_, ~userList=userList_) |> Js.log; */
